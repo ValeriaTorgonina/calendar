@@ -2,7 +2,7 @@
   "compilerOptions": {
     "importHelpers": true,
     "moduleResolution": "node",
-    "target": "es5",
+    "target": "es2015",
     "rootDir": "app",
     "strict": true,
     "baseUrl": "./app",

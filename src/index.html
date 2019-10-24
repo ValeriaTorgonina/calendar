@@ -2,70 +2,129 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Football</title>
+    <title>calendar</title>
     <style>
-      @keyframes rotate {
-        0% {
-         transform: rotate(0deg);
-        }
-
-        100% {
-          transform: rotate(360deg);
-        }
+      .month {
+        max-width: 150px;
+        margin: 5px auto 15px;
       }
-      
-      .field {
-        position: relative;
-        top: 5vh;
-        left: 50%;
-        transform: translate(-50%, 0%);
-        width: 700px;
-        height: 500px;
-        background: #f0ffe6;
-        border: 2px solid green;
+      .calendar,
+      .title-container {
+          display: flex;
+          justify-content: left;
+          flex-wrap: wrap;
+        margin: 0 auto;
+        height: 80vh;
+        width: 85%;
       }
 
-      .ball {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
+      .title-container {
+        height: 40px;
+        margin-bottom: 3px;
       }
 
-      .decor {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: url("img/tennis.png") 50% 50% no-repeat;
-        background-size: cover;
-        animation: rotate;
-        animation-duration: 2s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-        animation-direction: normal;
-      }
-      .btn {
-        width: 100px;
-        padding: 5px 0;
-        position: absolute;
-        background: #beeea8;
-        border: 1px solid green;
+      .title {
+        display: inline-block;
         font-size: 20px;
-        bottom: 20px;
-        left: 50%;
-        transform: translate(-50%, 0);
+          margin: 0;
+          padding: 10px 0;
+        text-align: center;
+        background-color: #ffd07d;
       }
+
+      .cell, .title {
+        width: 14%;
+        font-weight: bold;
+        border: 1px solid #b47500;
+          box-sizing: border-box;
+      }
+
+      .cell {
+        padding: 15px;
+        font-size: 25px;
+      }
+
+      .button-left,
+      .button-right {
+        position: absolute;
+        width: 50px;
+        height: 80px;
+        top: 50%;
+        left: 0;
+        border: none;
+        background-color: transparent;
+        transform: translate(50%, -50%);
+      }
+
+      .button-left:focus,
+      .button-right:focus {
+        outline: none;
+      }
+
+      .button-left:active::before,
+      .button-right:active::before,
+      .button-left:active::after,
+      .button-right:active::after {
+        background-color: #724700;
+        box-shadow: 0 0 5px 0px #ffd07d;
+      }
+
+      .button-right {
+        left: auto;
+        right: 20px;
+        transform: translate(-50%, -50%);
+      }
+
+      .button-left::before,
+      .button-left::after,
+      .button-right::before,
+      .button-right::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 50px;
+        top: -2px;
+        left: 20px;
+        background-color: #b47500;
+        transform: rotate(45deg);
+      }
+
+      .button-right::before,
+      .button-right::after {
+        top: -3px;
+        left: auto;
+        right: 20px;
+        transform: rotate(-45deg);
+      }
+
+      .button-left::after,
+      .button-right::after {
+        top: auto;
+        bottom: -2px;
+        transform: rotate(-45deg);
+      }
+
+      .button-right::after {
+        transform: rotate(45deg);
+      }
+
     </style>
   </head>
   <body>
-    <div id="field" class="field">
+    <h1 class="month"> Октябрь </h1>
+    <div class="title-container">
+      <h3 class="title">понедельник</h3>
+      <h3 class="title">вторник</h3>
+      <h3 class="title">среда</h3>
+      <h3 class="title">четверг</h3>
+      <h3 class="title">пятница</h3>
+      <h3 class="title">суббота</h3>
+      <h3 class="title">воскресенье</h3>
     </div>
-    <button class="btn">Add ball</button>
+    <div class="calendar">
+    </div>
+    <button class="button-left"></button>
+    <button class="button-right"></button>
     <script src="js/main.js"></script>
   </body>
 </html>
